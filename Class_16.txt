@@ -1,0 +1,111 @@
+------------------------------
+Concat
+select CONCAT('Scodeen',' ','Global') as concatination
+
+select 'Scodeen' +' ' +'Global' + ' '+'PUNE'
+
+select CONCAT_WS ('@','Scodeen','Global') as conwithWS
+
+select * from employee
+create table Concat1(Name varchar (10), surname varchar (10));
+insert into concat1 values ('Sumedha', 'Patil');
+insert into concat1 values ('Ram', 'Joshi');
+insert into concat1 values ('Seeta',' Patil');
+
+Select * from concat1;
+-----------------
+select name,concat(name,' _',surname) as Full_name  from concat1;
+select * ,concat(name,' _',surname) as Full_name  from concat1;
+select Name +' '+ surname as Full_name  from concat1
+
+select *,concat_ws('_',Name , surname) as Full_name  from concat1;
+--------------------
+--trim
+select 'Sumedha'
+select '     Sumedha   '
+
+'     Sumedha   '
+select ltrim('     Sumedha   ')
+'Sumedha   '
+select rtrim('     Sumedha   ')
+'     Sumedha'
+select rtrim(ltrim('     Sumedha   '))
+'Sumedha'
+
+select trim ('S' from name) from concat1;--starting point and ending point
+select trim ('A' from name) from concat1;--starting point and ending point
+----------------
+--Reverese
+select REVERSE('PUNE')
+select REVERSE('MITHALI')
+select*,reverse(name) from concat1;
+
+-------------------
+--Round
+select ROUND('value',1) -- Exception 
+select ROUND(74.4,0)  
+select ROUND(74.8,0)
+select ROUND(78.467,0)
+
+
+---------------------------
+
+replace
+select replace ('Sumedha','A','N')
+select replace ('Sumedha','dhA','123')
+------------
+replicate
+
+select replicate ('SODEEN ',2)
+
+----------------
+
+convert
+
+select GETDATE()
+select convert(varchar,getdate(),2)
+create table DOJ (id int, NAME varchar(20),DOJ datetime)
+
+insert into DOJ values (1,'Mansa','2020-01-01 10:10:10')
+insert into DOJ values (2,'Vasavi','2015-06-01 10:20:10')
+insert into DOJ values (3,'Pravlika','2014-04-01 11:10:10')
+insert into DOJ values (4,'Jyoti','2017-08-01 12:10:10')
+insert into DOJ values (5,'Pushpa','2016-05-01 01:23:10')
+insert into DOJ values (6,'Seema',GETDATE())
+select * from DOJ
+
+select *, convert(varchar,DOJ) as NewCreatedDOJ from DOJ
+select convert(time,getdate());
+
+
+------------------------
+--len
+DATALENGTH() and LEN()
+--This function returns the number of bytes used to reprsent the expression.
+--Syntax : DATALENGTH(string),LEN(String/Column_name)
+
+create table length_check (Lid int, Lname char(20))
+
+insert into length_check values(1,'Praveen')
+insert into length_check values(2,'Amit')
+insert into length_check values(3,'Meena')
+insert into length_check values(4,'Sohan')
+insert into length_check values(5,'Rajni')
+
+select *,LEN(Lname) as lengths from length_check 
+select *,datalength(Lname) as datalengths from length_check 
+
+-----------------------------------
+
+--rename
+Syntax-sp_rename
+select * from info;
+sp_rename 'info.city','Loc'
+
+sp_rename 'info.marks', 'percentage', 'COLUMN';
+
+sp_rename 'Info','Info_10'
+
+select * from Info_10;
+
+
